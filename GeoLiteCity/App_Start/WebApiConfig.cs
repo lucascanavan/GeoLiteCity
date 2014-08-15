@@ -11,6 +11,10 @@ namespace GeoLiteCity
         {
             // Web API configuration and services
 
+            // Force default to JSON.
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
